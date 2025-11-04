@@ -516,6 +516,7 @@ const scenes: Record<string, Scene> = {
     text: '*Фаер счастливо улыбается и страстно целует тебя* Вот и хорошо, моё сокровище... *обнимает и прижимает к себе* Видишь? Мы можем быть так счастливы вместе. *нежно гладит по голове* Я так люблю тебя, Винд...',
     choices: [
       { text: 'Можно я приму душ?', nextScene: 'ask_shower' },
+      { text: 'Можешь сделать мне массаж?', nextScene: 'fire_massage' },
       { text: 'Продолжить день', nextScene: 'evening_time' },
       { text: 'Искать момент для побега', nextScene: 'plan_escape' }
     ]
@@ -1057,6 +1058,168 @@ const scenes: Record<string, Scene> = {
     isEnding: true,
     choices: [
       { text: 'Начать заново', nextScene: 'start' }
+    ]
+  },
+  fire_massage: {
+    id: 'fire_massage',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Садится позади* Дай мне помочь тебе расслабиться... *руки ложатся на плечи* Ты так напряжён... *начинает массировать* Вот так... *пальцы скользят по шее* Лучше?',
+    choices: [
+      { text: 'Да... спасибо', nextScene: 'massage_continues' },
+      { text: 'Это... слишком интимно', nextScene: 'reject_massage' }
+    ]
+  },
+  massage_continues: {
+    id: 'massage_continues',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Продолжает массаж, руки медленно опускаются ниже* Ты такой тёплый... *целует шею* Мягкий... *прижимается грудью к спине* Я так люблю прикасаться к тебе... *руки скользят по груди* Позволишь мне продолжить?',
+    choices: [
+      { text: 'Продолжай...', nextScene: 'intimate_massage' },
+      { text: 'Может хватит на сегодня?', nextScene: 'stop_massage' }
+    ]
+  },
+  intimate_massage: {
+    id: 'intimate_massage',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Переворачивает на спину* Теперь я хочу видеть твоё лицо... *наклоняется ближе* Твои глаза... *целует* Твои губы... *руки продолжают скользить*\n\n*Время теряет смысл в его прикосновениях*',
+    choices: [
+      { text: 'Продолжить', nextScene: 'evening_time' }
+    ]
+  },
+  stop_massage: {
+    id: 'stop_massage',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Руки замирают* Хватит? *голос холоднее* Я даже не закончил... *хватка усиливается* Ты снова меня отвергаешь? *прижимает к полу* После того, как я так заботился о тебе?',
+    choices: [
+      { text: 'Прости! Продолжай!', nextScene: 'intimate_massage' },
+      { text: 'Я правда устал...', nextScene: 'fire_frustrated_massage' }
+    ]
+  },
+  reject_massage: {
+    id: 'reject_massage',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Руки сжимают плечи сильнее* Интимно? *голос ледяной* Между влюблёнными НЕ БЫВАЕТ \"слишком интимно\"! *переворачивает лицом к себе* Или ты... всё ещё не считаешь нас парой?',
+    choices: [
+      { text: 'Нет! Считаю! Просто...', nextScene: 'massage_continues' },
+      { text: 'Мы НЕ пара!', nextScene: 'death_rejection_couple' }
+    ]
+  },
+  fire_frustrated_massage: {
+    id: 'fire_frustrated_massage',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Резко встаёт* Устал... *дышит тяжело* Всегда устал. Всегда находишь причину оттолкнуть меня. *поворачивается спиной* Хорошо. Отдыхай. *уходит, хлопнув дверью*\n\n*Остаток дня он холоден и молчалив*',
+    choices: [
+      { text: 'Попытаться помириться', nextScene: 'apologize_fire' },
+      { text: 'Дать ему время', nextScene: 'evening_time' }
+    ]
+  },
+  death_rejection_couple: {
+    id: 'death_rejection_couple',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Глаза пустеют*\n\nНе... пара?\n\n*Хватает за горло*\n\nПОСЛЕ ВСЕГО? ПОСЛЕ ТОГО, КАК Я ОТДАЛ ТЕБЕ СВОЁ СЕРДЦЕ?!\n\n*Огонь вспыхивает яростно*\n\nЕСЛИ МЫ НЕ ПАРА... ТО ТЫ МНЕ НЕ НУЖЕН!\n\n*Пламя поглощает мгновенно и беспощадно*',
+    isDeath: true,
+    isEnding: true,
+    choices: [
+      { text: 'Начать заново', nextScene: 'start' }
+    ]
+  },
+  apologize_fire: {
+    id: 'apologize_fire',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Сидит отвернувшись, не смотрит* Что? *голос холодный* Пришёл извиниться? *молчание* Или снова найдёшь причину отвергнуть меня?',
+    choices: [
+      { text: 'Обнять сзади', nextScene: 'hug_apology' },
+      { text: 'Я правда сожалею...', nextScene: 'verbal_apology' }
+    ]
+  },
+  hug_apology: {
+    id: 'hug_apology',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Замирает когда ты обнимаешь* ...Винд? *руки ложатся на твои* Ты... *поворачивается в объятиях* Ты сам обнял меня... *глаза влажнеют* Я так ждал этого... *прижимает к себе* Прости, что был груб. *целует в лоб* Я просто... так боюсь тебя потерять.',
+    choices: [
+      { text: 'Я никуда не уйду', nextScene: 'promise_stay' },
+      { text: 'Промолчать и просто обнимать', nextScene: 'silent_hug' }
+    ]
+  },
+  verbal_apology: {
+    id: 'verbal_apology',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Медленно поворачивается* Сожалеешь? *встаёт* Слова... просто слова. *подходит ближе* Докажи. *берёт за руку* Докажи, что сожалеешь.',
+    choices: [
+      { text: 'Как мне доказать?', nextScene: 'prove_apology' },
+      { text: 'Поцеловать его', nextScene: 'kiss_apology' }
+    ]
+  },
+  promise_stay: {
+    id: 'promise_stay',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Крепко обнимает* Обещаешь? *смотрит в глаза* Навсегда? *целует страстно* Скажи ещё раз... скажи, что останешься со мной!',
+    choices: [
+      { text: 'Я останусь. Навсегда.', nextScene: 'evening_time' }
+    ]
+  },
+  silent_hug: {
+    id: 'silent_hug',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Молчит, просто держит тебя* ... *гладит по спине* Иногда молчание... лучше всех слов. *целует макушку* Спасибо.',
+    choices: [
+      { text: 'Продолжить обнимать', nextScene: 'evening_time' }
+    ]
+  },
+  prove_apology: {
+    id: 'prove_apology',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Притягивает ближе* Ты знаешь как... *руки на твоей талии* Покажи мне, что я тебе не безразличен. *взгляд жаркий* Прикоснись ко мне. Сам.',
+    choices: [
+      { text: 'Прикоснуться к его лицу', nextScene: 'tender_touch' },
+      { text: 'Обнять его', nextScene: 'hug_apology' }
+    ]
+  },
+  kiss_apology: {
+    id: 'kiss_apology',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Замирает от поцелуя, потом страстно отвечает* Винд... *обнимает крепко* Ты сам... ты сам меня поцеловал! *прижимает к себе* Я так счастлив... *целует снова и снова* Больше никогда не отталкивай меня. Пожалуйста.',
+    choices: [
+      { text: 'Хорошо... не буду', nextScene: 'evening_time' }
+    ]
+  },
+  tender_touch: {
+    id: 'tender_touch',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Прикрывает глаза, наслаждаясь прикосновением* Так нежно... *поворачивает голову, целуя твою ладонь* Я люблю, когда ты трогаешь меня... *берёт твою руку и прижимает к груди* Чувствуешь? Как бьётся моё сердце? Только для тебя.',
+    choices: [
+      { text: 'Поцеловать его', nextScene: 'kiss_apology' },
+      { text: 'Просто остаться так', nextScene: 'evening_time' }
     ]
   }
 };
