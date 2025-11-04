@@ -199,7 +199,184 @@ const scenes: Record<string, Scene> = {
     choices: [
       { text: 'Спасибо, Фаер', nextScene: 'comply' },
       { text: 'Я не голоден', nextScene: 'refuse_food' },
+      { text: 'Я хочу принять душ...', nextScene: 'ask_shower' },
       { text: 'Попытаться найти выход', nextScene: 'attempt_escape' }
+    ]
+  },
+  ask_shower: {
+    id: 'ask_shower',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Глаза загораются* Душ? *нежно улыбается* Конечно, любимый... *гладит по щеке* Я покажу тебе. *берёт за руку* Там есть горячие источники... очень... уединённое место. *ведёт по коридору*',
+    choices: [
+      { text: 'Идти за ним', nextScene: 'bathroom_scene' }
+    ]
+  },
+  bathroom_scene: {
+    id: 'bathroom_scene',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Открывает дверь в просторную комнату с парящим бассейном* Вот. *обнимает сзади* Хочешь, я помогу тебе?.. *целует в шею* Или... *медленно отходит* Я подожду здесь?',
+    choices: [
+      { text: 'Я... справлюсь сам, спасибо', nextScene: 'shower_alone' },
+      { text: 'Можешь остаться...', nextScene: 'shower_together' }
+    ]
+  },
+  shower_alone: {
+    id: 'shower_alone',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Кивает, но глаза темнеют* Хорошо... *целует в лоб* Я буду... рядом. *медленно выходит и прикрывает дверь*',
+    choices: [
+      { text: 'Принять душ', nextScene: 'shower_spying' }
+    ]
+  },
+  shower_spying: {
+    id: 'shower_spying',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    text: '*Ты входишь в тёплую воду. Пар окутывает тело. Горячие струи стекают по коже...*\n\n*Вдруг ты замечаешь краем глаза — дверь приоткрыта. В щели горят два огненных глаза, неотрывно следящих за каждым твоим движением.*\n\n*Фаер наблюдает. Дыхание учащённое. Руки сжимают дверной косяк так сильно, что дерево начинает дымиться.*',
+    choices: [
+      { text: 'Сделать вид, что не заметил', nextScene: 'pretend_ignore' },
+      { text: 'Фаер?! Ты подглядываешь?!', nextScene: 'confront_spying' },
+      { text: 'Повернуться к двери спиной', nextScene: 'turn_away' }
+    ]
+  },
+  pretend_ignore: {
+    id: 'pretend_ignore',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    text: '*Ты продолжаешь мыться, делая вид, что ничего не заметил. Взгляд Фаера становится всё более жадным. Ты слышишь его тяжёлое дыхание даже через шум воды.*\n\n*Наконец дверь резко распахивается.*',
+    choices: [
+      { text: 'Обернуться', nextScene: 'fire_enters' }
+    ]
+  },
+  confront_spying: {
+    id: 'confront_spying',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Дверь распахивается полностью* Подглядываю? *входит* Я не подглядываю за тем, что МОЁ. *медленно приближается* Ты мой, Винд. *снимает одежду* Каждая часть тебя принадлежит мне. *входит в воду* И я имею право СМОТРЕТЬ.',
+    choices: [
+      { text: 'Прикрыться руками', nextScene: 'fire_possessive' },
+      { text: 'Это... неправильно', nextScene: 'fire_angry_privacy' }
+    ]
+  },
+  turn_away: {
+    id: 'turn_away',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    text: '*Ты поворачиваешься спиной к двери. Слышишь как дверь скрипит — открывается шире.*',
+    choices: [
+      { text: 'Не оборачиваться', nextScene: 'fire_behind' }
+    ]
+  },
+  fire_enters: {
+    id: 'fire_enters',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Фаер стоит в дверях, дыхание тяжёлое, глаза горят* Прости... *делает шаг вперёд* Я не смог... не смог остаться там. *снимает рубашку* Ты так прекрасен... *входит в воду* Я хочу быть рядом. Всегда рядом.',
+    choices: [
+      { text: 'Разрешить ему войти', nextScene: 'shower_together' },
+      { text: 'Пожалуйста, выйди', nextScene: 'reject_entry' }
+    ]
+  },
+  fire_behind: {
+    id: 'fire_behind',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Внезапно чувствуешь горячие руки на плечах* Винд... *Фаер обнимает сзади, прижимаясь всем телом* Почему отвернулся? *целует шею* Ты стесняешься меня? *руки скользят по мокрой коже* Или... прячешься?',
+    choices: [
+      { text: 'Я просто... не ожидал', nextScene: 'shower_together' },
+      { text: 'Отстрани его', nextScene: 'push_away_shower' }
+    ]
+  },
+  fire_possessive: {
+    id: 'fire_possessive',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Хватает руки и разводит их в стороны* Не прячься от меня. *прижимает к стене бассейна* НИКОГДА не прячься от меня. *целует страстно* Я хочу видеть всё. Каждую часть тебя. *руки скользят по телу* Ты понял?',
+    choices: [
+      { text: 'Да... я понял', nextScene: 'shower_together' },
+      { text: 'Это слишком...', nextScene: 'fire_angry_privacy' }
+    ]
+  },
+  fire_angry_privacy: {
+    id: 'fire_angry_privacy',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Застывает. Хватка усиливается* Неправильно? Слишком? *голос становится опасным* У ТЕБЯ НЕТ ПРАВА НА ПРИВАТНОСТЬ! *толкает под воду* ТЫ МОЙ! *поднимает обратно* Твоё тело — МОЁ! Твоя жизнь — МОЯ! *трясёт* ВСЁ В ТЕБЕ ПРИНАДЛЕЖИТ МНЕ!',
+    choices: [
+      { text: 'Прости! Ты прав!', nextScene: 'submit_shower' },
+      { text: 'Я не вещь!', nextScene: 'death_defiance_shower' }
+    ]
+  },
+  push_away_shower: {
+    id: 'push_away_shower',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Падает назад от толчка. Медленно встаёт. Глаза пусты* Ты... оттолкнул меня? *вода вокруг начинает кипеть* ОТТОЛКНУЛ?! *хватает за горло и прижимает к стене* Я пришёл к тебе с ЛЮБОВЬЮ! *сжимает* А ты... ты ОТТОЛКНУЛ меня?!',
+    choices: [
+      { text: 'Прости! Я испугался!', nextScene: 'submit_shower' },
+      { text: 'Отпусти меня!', nextScene: 'death_defiance_shower' }
+    ]
+  },
+  reject_entry: {
+    id: 'reject_entry',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Замирает в воде* Выйти? *голос ледяной* Ты просишь меня... ВЫЙТИ? *медленно приближается* Из МОЕГО замка? МОЕЙ ванны? К МОЕМУ пленнику? *хватает за волосы* У ТЕБЯ НЕТ ПРАВА МНЕ ОТКАЗЫВАТЬ!',
+    choices: [
+      { text: 'Прости! Оставайся!', nextScene: 'shower_together' },
+      { text: 'У меня есть право!', nextScene: 'death_defiance_shower' }
+    ]
+  },
+  submit_shower: {
+    id: 'submit_shower',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Отпускает, дыхание тяжёлое* Хорошо... *обнимает нежно* Хорошо, любимый. *гладит волосы* Я не хотел пугать тебя... *целует в лоб* Просто запомни — ты всегда мой. *прижимает к себе* Всегда.',
+    choices: [
+      { text: 'Я понял...', nextScene: 'shower_together' }
+    ]
+  },
+  shower_together: {
+    id: 'shower_together',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Нежно моет твои волосы, плечи, спину* Ты такой красивый... *целует шею* Такой идеальный... *обнимает* Я так счастлив, что ты здесь. Со мной. *шепчет* Навсегда со мной...\n\n*Время в горячей воде тянется медленно, в объятиях Фаера*',
+    choices: [
+      { text: 'Закончить купание', nextScene: 'after_shower' }
+    ]
+  },
+  death_defiance_shower: {
+    id: 'death_defiance_shower',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Глаза полыхают яростью*\n\nТЫ СМЕЕШЬ...\n\n*Вода вокруг закипает*\n\nОТКАЗЫВАТЬ МНЕ ДАЖЕ ЗДЕСЬ?!\n\n*Топит под воду*\n\nЕСЛИ НЕ МОЖЕШЬ БЫТЬ ПОКОРНЫМ...\n\n*Держит под водой, не отпуская*\n\nТО НЕ НУЖЕН МНЕ ВООБЩЕ.\n\n*Последнее, что ты видишь — его безумные горящие глаза над поверхностью воды*',
+    isDeath: true,
+    isEnding: true,
+    choices: [
+      { text: 'Начать заново', nextScene: 'start' }
+    ]
+  },
+  after_shower: {
+    id: 'after_shower',
+    background: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/00883e0f-5224-45aa-9a80-396ab69d31a4.jpg',
+    character: 'https://cdn.poehali.dev/projects/5f0c4709-879b-4a39-8fae-3e23768bee88/files/3301159a-d439-4e50-be48-7f4a885fafb5.jpg',
+    speaker: 'Фаер Спирит',
+    text: '*Заботливо вытирает тебя полотенцем* Теперь ты чистый... *целует плечо* И такой прекрасный... *обнимает* Спасибо, что позволил мне быть рядом, любимый.',
+    choices: [
+      { text: 'Вернуться к повседневной жизни', nextScene: 'evening_time' }
     ]
   },
   evening_time: {
